@@ -5,8 +5,8 @@ dbName = 'Library'
 const db = client.db(dbName);
 const fs = require('fs');
 const { finished } = require("stream");
-const books = 'C:/FS/FS_projects/UST_Projects/LMS/JSON/books.json'
-const journals = 'C:/FS/FS_Projects/UST_Projects/LMS/JSON/journals.json'
+const books = './JSON/books.json' //
+const journals = './JSON/journals.json'
 
 async function loadJSON(fileName = '') { //loading JSON
    return await JSON.parse (
