@@ -1,2 +1,45 @@
-# lms-project
-Source code for Library Management System, a UST FSD Project
+# Library Management System
+
+The Library Management System is made as part of the UST FSD Training Program. The diagram given below illustrates how the front-end & back-end are connected.
+    
+       Front         Express.js          Back     
+        End        <------------>        End      
+       (HTML)                            (JS)   
+  An overview of all the items included in this repository
+  
+  | Type | Compoent | Description | 
+  |------------|------------|------------|
+  | Folders | about   |                             |
+  |         | login   |                  Contains html & css files for the respective page            |
+  |         | update  |                                                                               |
+  |         | success | Contains all html pages that are to be loaded when an operation is successful |
+  |         | JSON    | Contains JSON files that store information about it's respective documents |
+  | Main Files    | lms.html| Home page of the LMS Project. |
+  |         | lms.css | Making the home page look *pretty* |
+  |         | lms.js | Back-end, used to handle various operations like searching for books & journals, updating the name of a document or generating a report |
+  |         | lms_utility.js | Custom library to perform above said operations on flat files (i.e., JSON files). |
+  |        | lms_mongodb.js | Same thing but using mongodb in case the LMS needs to be scaled up  |
+  
+  Dependencies required if running locally:
+  1) npm package manager
+  2) Install express.js
+  ```
+  npm install express
+  ```
+  3) Install body-parser
+  ```
+  npm install body-parser
+  ```
+  4) Install nodemon (alternatively, you could run node lms.js *every single time*)
+  ```
+  npm install nodemon 
+  ```
+  
+# To run the project locally
+1) Go the file where lms.js is located and in the terminal, type
+```
+npx nodemon lms.js
+```
+2) Press f5 when viewing lms.html
+
+or, alternatively, use the liveserver extension
