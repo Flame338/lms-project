@@ -20,7 +20,7 @@ The Library Management System is made as part of the UST FSD Training Program. T
   |         | lms_utility.js | Custom library to perform above said operations on flat files (i.e., JSON files). |
   |        | lms_mongodb.js | Same thing but using mongodb in case the LMS needs to be scaled up  |
   
-  Dependencies required if running locally:
+ # Dependencies required if running locally:
   1) npm package manager
   2) Install express.js
   ```
