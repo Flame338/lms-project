@@ -5,7 +5,7 @@ const app = express();
 const fs = require('fs')
 const body_parser = require("body-parser")
 app.use(body_parser.urlencoded({extended: true}));
-var Utility = require("C:/FS/FS_projects/UST_Projects/LMS/lms_utility.js")
+var Utility = require("./lms_utility.js")
 
 const url = 'mongodb://127.0.0.1:27017'
 const client = new MongoClient(url)
@@ -48,14 +48,14 @@ app.post("/get_document", function(req, res) {
             break
 
         case 'empty':
-            y = Utility.fetch_book_flat(docName, field, 'books.json')
+            y = Utility.fetch_book_flat(docName, field)
             y.then((value) => {
                 //res.write(value)
                 fs.appendFileSync('success/fetch_success.html', value)
             })
             .catch(console.err)
 
-            z = Utility.fetch_journal_flat(docName, field, 'journals.json')
+            z = Utility.fetch_journal_flat(docName, field)
             z.then((value) => {
                 /*res.write(value)
                 res.end() */
