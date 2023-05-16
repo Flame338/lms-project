@@ -12,10 +12,10 @@ The Library Management System is made as part of the UST FSD Training Program. T
   | Folders | about   |                             |
   |         | login   |                  Contains html & css files for the respective page            |
   |         | update  |                                                                               |
+  | | home | Contains lms.html & html.css |
   |         | success | Contains all html pages that are to be loaded when an operation is successful |
   |         | JSON    | Contains JSON files that store information about it's respective documents |
-  | Main Files    | lms.html| Home page of the LMS Project. |
-  |         | lms.css | Making the home page look *pretty* |
+  | Main Files  | lms.css | Making the home page look *pretty* |
   |         | lms.js | Back-end, used to handle various operations like searching for books & journals, updating the name of a document or generating a report |
   |         | lms_utility.js | Custom library to perform above said operations on flat files (i.e., JSON files). |
   |        | lms_mongodb.js | Same thing but using mongodb in case the LMS needs to be scaled up  |
