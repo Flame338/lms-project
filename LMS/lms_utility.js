@@ -5,8 +5,6 @@ dbName = 'Library'
 const db = client.db(dbName);
 const fs = require('fs');
 const { finished } = require("stream");
-/*const books = 'C:/FS/FS_projects/UST_Projects/LMS/JSON/books.json'
-const journals = 'C:/FS/FS_Projects/UST_Projects/LMS/JSON/journals.json' */
 const books = './JSON/books.json'
 const journals = './JSON/journals.json'
 
@@ -182,7 +180,7 @@ async function display(docType, value = []) { //universal display function
             break
         default: console.log("Error in docType in display")
     }
-    var htmlOpt = "<html><body><br><table border = '2'>"
+    var htmlOpt = "<div><table border = '2'>"
     htmlOpt += "<tr><th>ID</th> <th>Title</th>"
     htmlOpt += "<th>Author</th><th>DOP</th></tr>"
     for(var i = 0; i< len; i++){
@@ -193,7 +191,7 @@ async function display(docType, value = []) { //universal display function
         htmlOpt += "<td>" + date[i] + "</td>"
         htmlOpt += "</tr>"
     }
-    htmlOpt += "</table></body></html>" 
+    htmlOpt += "</table></div><br><br>" 
     return htmlOpt 
 }
 
