@@ -39,6 +39,6 @@ The Library Management System is made as part of the UST FSD Training Program. T
 ```
 npx nodemon lms.js
 ```
-2) Press f5 when viewing lms.html
+2) Run http://locahost:8000
 
-or, alternatively, use the liveserver extension
+The website is now up for local use!
