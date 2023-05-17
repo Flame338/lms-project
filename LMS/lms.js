@@ -9,6 +9,8 @@ var Utility = require("./lms_utility.js")
 const url = 'mongodb://127.0.0.1:27017'
 const client = new MongoClient(url)
 const dbName = 'Library' 
+var header = fs.readFileSync('template/header.html').toString()
+var footer = fs.readFileSync('template/footer.html').toString()
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
@@ -25,14 +27,12 @@ app.post("/", function(req, res) {
     const docType = req.body.document
     const field = req.body.field
     const docName = req.body.doc_attr
-    var header = fs.readFileSync('template/header.html').toString()
-    var footer = fs.readFileSync('template/footer.html').toString()
     var Opt
     switch(docType) {
         case 'Books':
             x = Utility.fetch_book_flat(docName, field)
             x.then((value) => {
-                Opt =  header + value + footer
+                Opt =  header + '<h2>Books</h2>' + value + footer
                 fs.writeFileSync('success/fetch_success.html', Opt)
                 res.sendFile(__dirname + "/" + 'success/fetch_success.html')
             })
@@ -43,7 +43,7 @@ app.post("/", function(req, res) {
         case 'Journals':
             x = Utility.fetch_journal_flat(docName, field)
             x.then((value) => {
-                Opt =  header + value + footer
+                Opt =  header +'<h2>Journals</h2>'+ value + footer
                 fs.writeFileSync('success/fetch_success.html', Opt)
                 res.sendFile(__dirname + "/" + 'success/fetch_success.html')
             })
@@ -58,13 +58,13 @@ app.post("/", function(req, res) {
             else {
                 y = Utility.fetch_book_flat(docName, field)
                 y.then((value) => {
-                    Opt = header + value
+                    Opt = header +'<h2>Books</h2>'+ value
                 })
                 .catch(console.err)
 
                 z = Utility.fetch_journal_flat(docName, field)
                 z.then((value2) => {
-                    Opt += value2 + footer
+                    Opt += '<h2>Journals</h2>'+ value2 + footer
                     fs.appendFileSync('success/fetch_success.html', Opt)
                     res.sendFile(__dirname + '/'+ 'success/fetch_success.html')
                 })
@@ -85,6 +85,7 @@ app.post("/update_document", function(req, res) {
     res.sendFile(__dirname + '/'+ 'success/update_success.html')
     client.close()
 })
+
 
 app.use(express.static('success'))
 app.use(express.static('about'))

@@ -191,7 +191,7 @@ async function display(docType, value = []) { //universal display function
         htmlOpt += "<td>" + date[i] + "</td>"
         htmlOpt += "</tr>"
     }
-    htmlOpt += "</table></div><br><br>" 
+    htmlOpt += "</table></div>" 
     return htmlOpt 
 }
 
