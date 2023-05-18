@@ -14,5 +14,29 @@
             </ul> <br><br>
     </div> 
 
-<h2>Journals</h2><div><table border = '2'><tr><th>ID</th> <th>Title</th><th>Author</th><th>DOP</th></tr><tr><td>3</td><td>ACM Computing Surveys</td><td>Albert Y. Zomaya</td><td>2022-01-12</td></tr></table></div></body>
+<div class = "search_div">
+            <h2>Searching for a document</h2>
+            <form action ="http://localhost:8000/" method = "POST">
+        
+            <label for = "doc_type"> Document Type: </label>
+            <select name = "document" id = "doc_type">
+                <option value = "Books">Books</option>
+                <option value = "Journals">Journals</option>
+                <option value = "empty">N/A</option>
+            </select>
+
+            <label for = "field">Search Field: </label>
+            <select name = "field" id = "field">
+                <option value = "empty"> N/A</option>
+                <option value = "id">ID</option>
+                <option value = "title">title</option>
+                <option value = "author">Author Name</option>
+                <option value = "date">Publication Date</option>
+            </select>
+
+            <label for = "doc_attr">Search:</label>
+            <input type = "text" name = "doc_attr" id = "doc_attr">
+            <input type = "submit" name = "Submit" value = "Submit" id = "submit">
+            </form> 
+</div><h2>Report</h2><h3>Books</h3><div><table border = '2'><tr><th>ID</th> <th>Title</th><th>Author</th><th>DOP</th></tr><tr><td>1</td><td>Moby Dick</td><td>Herman Melville</td><td>1851-10-01</td></tr><tr><td>2</td><td>The Great Gatsby</td><td>F. Scott Fitzgerald</td><td>1925-04-10</td></tr><tr><td>3</td><td>Pride & Prejudice</td><td>Jane Austen</td><td>1813-04-28</td></tr><tr><td>4</td><td>Diary of a Wimpy Kid</td><td>Jeff Kinnley</td><td>2010-05-03</td></tr></table></div><h3>Journals</h3><div><table border = '2'><tr><th>ID</th> <th>Title</th><th>Author</th><th>DOP</th></tr><tr><td>1</td><td>CASM</td><td>Andrew S. Tanenbaum</td><td>2022-04-01</td></tr><tr><td>2</td><td>IEEE Transactions on Pattern Analysis and Machine Intelligence</td><td>Sven Dickinson</td><td>2021-05-27</td></tr><tr><td>3</td><td>ACM Computing Surveys</td><td>Albert Y. Zomaya</td><td>2022-01-12</td></tr></table></div></body>
 </html>
