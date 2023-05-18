@@ -24,7 +24,7 @@ async function saveJSON(fileName = '', json = '') { //saving JSON to file
     }
 }
 
-async function add_book_flat(title='', author='', dop='') { //bug: double printing new element into file
+async function add_book_flat(title='', author='', dop='', mode = 0) { //bug: double printing new element into file
     var value = []
     value = await loadJSON(books)
     console.log('Before pushing data')
@@ -40,7 +40,7 @@ async function add_book_flat(title='', author='', dop='') { //bug: double printi
     }
     value[len] = book_info
     console.log(value)
-    saveJSON(books, value)
+    await saveJSON(books, value)
     client.close()
 }
 
@@ -48,7 +48,7 @@ async function fetch_book_flat(bookattr, field) { //.json version for fetching b
     const data = await loadJSON(books)
     var Opt = []
     var len = data.length
-    console.log(field)
+    console.log('Selected field: '+ field)
     switch(field) {
         case 'title':
             for(var i = 0; i < len; i++) {
@@ -160,8 +160,19 @@ async function update_journal_flat(title, newTitle) {
     saveJSON(journals, data)
 }
 
+async function linearSearch(list, x){
+    var Opt = []
+    for(var i = 0;i<list.length;i++){
+        if(list.author == x){
+            Opt[0] = list.author
+            Opt[1] = list.author_ID
+            return Opt
+        }
+    }
+}
+
 async function display(docType, value = []) { //universal display function
-    var id = [], title = [], author = [], date = []
+    var id = [], title = [], author = [], date = [], author_ID = []
     var len = value.length
     switch(docType) {
         case 'Books':

@@ -11,10 +11,7 @@ const client = new MongoClient(url)
 const dbName = 'Library' 
 var header = fs.readFileSync('template/header.html').toString()
 var footer = fs.readFileSync('template/footer.html').toString()
-
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
-
+var body = fs.readFileSync('template/search.html').toString()
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, '/home/lms.html'))
@@ -32,7 +29,7 @@ app.post("/", function(req, res) {
         case 'Books':
             x = Utility.fetch_book_flat(docName, field)
             x.then((value) => {
-                Opt =  header + '<h2>Books</h2>' + value + footer
+                Opt =  header + body +'<h2>Books</h2>' + value + footer
                 fs.writeFileSync('success/fetch_success.html', Opt)
                 res.sendFile(__dirname + "/" + 'success/fetch_success.html')
             })
@@ -43,7 +40,7 @@ app.post("/", function(req, res) {
         case 'Journals':
             x = Utility.fetch_journal_flat(docName, field)
             x.then((value) => {
-                Opt =  header +'<h2>Journals</h2>'+ value + footer
+                Opt =  header + body +'<h2>Journals</h2>' + value + footer 
                 fs.writeFileSync('success/fetch_success.html', Opt)
                 res.sendFile(__dirname + "/" + 'success/fetch_success.html')
             })
@@ -58,13 +55,13 @@ app.post("/", function(req, res) {
             else {
                 y = Utility.fetch_book_flat(docName, field)
                 y.then((value) => {
-                    Opt = header +'<h2>Books</h2>'+ value
+                    Opt = header + body +'<h2>Report</h2><h3>Books</h3>'+ value
                 })
                 .catch(console.err)
 
                 z = Utility.fetch_journal_flat(docName, field)
                 z.then((value2) => {
-                    Opt += '<h2>Journals</h2>'+ value2 + footer
+                    Opt += '<h3>Journals</h3>'+ value2 + footer
                     fs.appendFileSync('success/fetch_success.html', Opt)
                     res.sendFile(__dirname + '/'+ 'success/fetch_success.html')
                 })
@@ -85,7 +82,6 @@ app.post("/update_document", function(req, res) {
     res.sendFile(__dirname + '/'+ 'success/update_success.html')
     client.close()
 })
-
 
 app.use(express.static('success'))
 app.use(express.static('about'))
