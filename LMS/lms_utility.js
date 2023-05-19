@@ -24,26 +24,6 @@ async function saveJSON(fileName = '', json = '') { //saving JSON to file
     }
 }
 
-async function add_book_flat(title='', author='', dop='', mode = 0) { //bug: double printing new element into file
-    var value = []
-    value = await loadJSON(books)
-    console.log('Before pushing data')
-    console.log(value)
-    console.log('After pushing data')
-    var len = value.length
-    var index = value.length == null? 1: value.length +1 
-    var book_info = {
-        author: author,
-        date: dop,
-        book_ID:  index,
-        book_title: title
-    }
-    value[len] = book_info
-    console.log(value)
-    await saveJSON(books, value)
-    client.close()
-}
-
 async function fetch_book_flat(bookattr, field) { //.json version for fetching books
     const data = await loadJSON(books)
     var Opt = []
@@ -52,7 +32,8 @@ async function fetch_book_flat(bookattr, field) { //.json version for fetching b
     switch(field) {
         case 'title':
             for(var i = 0; i < len; i++) {
-                if(data[i].book_title == bookattr)
+                //if(data[i].book_title == bookattr)
+                
                 Opt.push(data[i])
             }
             break
@@ -160,17 +141,6 @@ async function update_journal_flat(title, newTitle) {
     saveJSON(journals, data)
 }
 
-async function linearSearch(list, x){
-    var Opt = []
-    for(var i = 0;i<list.length;i++){
-        if(list.author == x){
-            Opt[0] = list.author
-            Opt[1] = list.author_ID
-            return Opt
-        }
-    }
-}
-
 async function display(docType, value = []) { //universal display function
     var id = [], title = [], author = [], date = [], author_ID = []
     var len = value.length
@@ -206,6 +176,30 @@ async function display(docType, value = []) { //universal display function
     return htmlOpt 
 }
 
+function get_bigrams(string){ //universal function, work in progress
+  var s = string.toLowerCase()
+  var v = s.split('');
+  for(var i=0; i<v.length; i++){ v[i] = s.slice(i, i + 2); }
+  return v;
+}
+
+function string_similarity(str1, str2){ //fuzzy finder thingie
+  if(str1.length>0 && str2.length>0){
+    var pairs1 = get_bigrams(str1);
+    var pairs2 = get_bigrams(str2);
+    var union = pairs1.length + pairs2.length;
+    var hits = 0;
+    for(var x=0; x<pairs1.length; x++){
+      for(var y=0; y<pairs2.length; y++){
+        if(pairs1[x]==pairs2[y]) hits++;
+    }}
+    if(hits>0) return ((2.0 * hits) / union);
+  }
+  return 0.0
+}
+
+
+
 module.exports = { 
-    display, loadJSON, saveJSON, fetch_book_flat, fetch_journal_flat, update_document_flat
+    display, loadJSON, saveJSON, fetch_book_flat, fetch_journal_flat, update_document_flat, string_similarity
 }
