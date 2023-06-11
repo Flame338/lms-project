@@ -174,7 +174,7 @@ async function display(docType, value = [], flag) { //universal display function
     }
     var htmlOpt = "<div><table border = '2'>"
     htmlOpt += "<tr><th>ID</th> <th>Title</th>"
-    htmlOpt += "<th>Author</th><th>DOP</th></tr>"
+    htmlOpt += "<th>Author</th><th>Author Info</th><th>DOP</th></tr>"
     for(var i = 0; i< len; i++){
         htmlOpt += "<tr>";
         htmlOpt += "<td>" + id[i] + "</td>"
