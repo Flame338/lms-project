@@ -7,6 +7,7 @@ const fs = require('fs');
 const { finished } = require("stream");
 const books = './JSON/books.json'
 const journals = './JSON/journals.json'
+var flag = false 
 
 async function loadJSON(fileName = '') { //loading JSON
    return await JSON.parse (
@@ -59,9 +60,11 @@ async function fetch_book_flat(bookattr, field) { //.json version for fetching b
             for(var i = 0; i < len; i++) {
                 Opt.push(data[i])
             }
+            flag = true
             break
+        default: console.log("Oops, invalid document type selected. How did you even do that?")
     }
-    return await display('Books', Opt)
+    return await display('Books', Opt, flag)
 }
 
 async function fetch_journal_flat(bookattr, field) { //.json version of fetch_journals
@@ -97,9 +100,11 @@ async function fetch_journal_flat(bookattr, field) { //.json version of fetch_jo
             for(var i = 0; i < len; i++) {
                 Opt.push(data[i])
             }
+            flag = true
             break
+        default: console.log("Oops, invalid search parameter selected. How did you even do that?")
     }
-    return await display('Journals', Opt)
+    return await display('Journals', Opt, flag)
 }
 
 async function update_document_flat(docType,title, newTitle) { 
@@ -141,8 +146,8 @@ async function update_journal_flat(title, newTitle) {
     saveJSON(journals, data)
 }
 
-async function display(docType, value = []) { //universal display function
-    var id = [], title = [], author = [], date = [], author_ID = []
+async function display(docType, value = [], flag) { //universal display function
+    var id = [], title = [], author = [], date = [], author_info= []
     var len = value.length
     switch(docType) {
         case 'Books':
@@ -150,6 +155,9 @@ async function display(docType, value = []) { //universal display function
                 id[i] = value[i].book_ID
                 title[i] = value[i].book_title
                 author[i] = value[i].author
+                if(flag == true){
+                    author_info[i] = value[i].about_author
+                }
                 date[i] = value[i].date }
             break
         case 'Journals':
@@ -157,6 +165,9 @@ async function display(docType, value = []) { //universal display function
                 id[i] = value[i].journal_ID
                 title[i] = value[i].journal_title
                 author[i] = value[i].author
+                if(flag == true){
+                    author_info[i] = value[i].about_author
+                }
                 date[i] = value[i].date }
             break
         default: console.log("Error in docType in display")
@@ -169,6 +180,9 @@ async function display(docType, value = []) { //universal display function
         htmlOpt += "<td>" + id[i] + "</td>"
         htmlOpt += "<td>" + title[i] + "</td>"
         htmlOpt += "<td>" + author[i] + "</td>"
+        if(flag == true){
+            htmlOpt += "<td>" + author_info[i] + "</td>" 
+        }
         htmlOpt += "<td>" + date[i] + "</td>"
         htmlOpt += "</tr>"
     }
