@@ -51,3 +51,8 @@ At the top, there is a navbar that shows three tabs
 - Search
 - Update
 - About
+
+# Search Mode
+Searching is easy, choose the document type & search field then add a search term in the search bar. Hit submit and you'll have info about the document in question
+
+Eg. 
