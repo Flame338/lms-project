@@ -3,18 +3,21 @@
     "author": "Andrew S. Tanenbaum",
     "date": "2022-04-01",
     "journal_ID": 1,
-    "journal_title": "CASM"
+    "journal_title": "CASM",
+    "about_author": "Andrew Stuart Tanenbaum (born March 16, 1944), sometimes referred to by the handle ast, is an American-Dutch computer scientist and professor emeritus of computer science at the Vrije Universiteit Amsterdam in the Netherlands."
   },
   {
     "author": "Sven Dickinson",
     "date": "2021-05-27",
     "journal_ID": 2,
-    "journal_title": "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+    "journal_title": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    "about_author": "Sven Dickinson was a Professor the University of Toronto. Now, is working as the Vice President / Head Samsung Toronto AI Research Center"
   },
   {
     "author": "Albert Y. Zomaya",
     "date": "2022-01-12",
     "journal_ID": 3,
-    "journal_title": "ACM Computing Surveys"
+    "journal_title": "ACM Computing Surveys",
+    "about_author": "Albert Y. Zomaya FAA FRSN is currently the Chair Professor of High Performance Computing & Networking and Australian Research Council Professorial Fellow in the School of Information Technologies, The University of Sydney. He is also the Director of the Centre for Distributed and High Performance Computing. He is currently the Editor in Chief of IEEE Transactions on Sustainable Computing and Springer's Scalable Computing and Communications. He was past Editor in Chief of the IEEE Transactions on Computers."
   }
 ]

@@ -3,24 +3,28 @@
     "author": "Herman Melville",
     "date": "1851-10-01",
     "book_ID": 1,
-    "book_title": "Moby Dick"
+    "book_title": "Moby Dick",
+    "about_author": "Herman Melville (born Melvill;August 1, 1819 - September 28, 1891) was an American novelist, short story writer, and poet of the American Renaissance period. Among his best-known works are Moby-Dick (1851); Typee (1846), a romanticized account of his experiences in Polynesia; and Billy Budd, Sailor, a posthumously published novella."
   },
   {
     "author": "F. Scott Fitzgerald",
     "date": "1925-04-10",
     "book_ID": 2,
-    "book_title": "The Great Gatsby"
+    "book_title": "The Great Gatsby",
+    "about_author": "Francis Scott Key Fitzgerald (September 24, 1896 - December 21, 1940) was an American novelist, essayist, and short story writer. He is best known for his novels depicting the flamboyance and excess of the Jazz Age—a term he popularized in his short story collection Tales of the Jazz Age. During his lifetime, he published four novels, four story collections, and 164 short stories. Although he achieved temporary popular success and fortune in the 1920s, Fitzgerald received critical acclaim only after his death and is now widely regarded as one of the greatest American writers of the 20th century."
   },
   {
     "author": "Jane Austen",
     "date": "1813-04-28",
     "book_ID": 3,
-    "book_title": "Pride & Prejudice"
+    "book_title": "Pride & Prejudice",
+    "about_author": "Jane Austen ( 16 December 1775 - 18 July 1817) was an English novelist known primarily for her six major novels, which interpret, critique, and comment upon the British landed gentry at the end of the 18th century. Austen's plots often explore the dependence of women on marriage in the pursuit of favourable social standing and economic security. Her works critique the novels of sensibility of the second half of the 18th century and are part of the transition to 19th-century literary realism. Her use of social commentary, realism and biting irony have earned her acclaim among critics and scholars."
   },
   {
     "author": "Jeff Kinnley",
     "date": "2010-05-03",
     "book_ID": 4,
-    "book_title": "Diary of a Wimpy Kid"
+    "book_title": "Diary of a Wimpy Kid",
+    "about_author": "Jeffrey Patrick Kinney (born February 19, 1971) is an American author and cartoonist, best known as the creator of the children's book series Diary of a Wimpy Kid. He also created the child-oriented website Poptropica."
   }
 ]
