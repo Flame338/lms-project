@@ -62,3 +62,14 @@ In the above example, we're searching for the book Moby Dick
 Click on the Update Titles tab on the navbar to get redirected to this page
 ![image](https://github.com/Flame338/lms-project/assets/79010252/3be83add-2dfb-429f-8728-d2e57b72e4fe)
 Here, since it's simply used to change the title of a document, the search field here are the document types. To update the name of a title, simply type it's name and hit submit
+
+# Report Mode
+To see the report of all the documents in the system, simply set all fields of the Search Page as N/A (empty) as so
+![image](https://github.com/Flame338/lms-project/assets/79010252/c3b85f12-7d58-4636-a654-5c62553d15b9)
+The output is renderred on the same page as so
+![image](https://github.com/Flame338/lms-project/assets/79010252/3e52d8ce-09e8-4651-9fef-a1e8dc9b6320)
+
+# Points to improve on:
+- Adding a Admin/User roles accorsing to log in credentials
+- Making a cleaner UI/UX
+- Migrating the project to React using the T3 stack (Tailwind css, Typescript, tRPC) for better development experience
