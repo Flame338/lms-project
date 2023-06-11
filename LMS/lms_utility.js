@@ -7,7 +7,7 @@ const fs = require('fs');
 const { finished } = require("stream");
 const books = './JSON/books.json'
 const journals = './JSON/journals.json'
-var flag = false 
+let field_flag = false 
 
 async function loadJSON(fileName = '') { //loading JSON
    return await JSON.parse (
@@ -33,9 +33,9 @@ async function fetch_book_flat(bookattr, field) { //.json version for fetching b
     switch(field) {
         case 'title':
             for(var i = 0; i < len; i++) {
-                //if(data[i].book_title == bookattr)
-                
-                Opt.push(data[i])
+                if(data[i].book_title == bookattr)
+                    Opt.push(data[i])
+                field_flag = false
             }
             break
         case 'author':
@@ -43,28 +43,31 @@ async function fetch_book_flat(bookattr, field) { //.json version for fetching b
                 if(data[i].author == bookattr)
                 Opt.push(data[i])
             }
+            field_flag = false
             break
         case 'date':
             for(var i = 0; i < len; i++) {
                 if(data[i].date == bookattr)
                 Opt.push(data[i])
             }
+            field_flag = false
             break
         case 'id':
             for(var i = 0; i < len; i++) {
                 if(data[i].book_ID == parseInt(bookattr))
                 Opt.push(data[i])
             }
+            field_flag = false
             break
         case 'empty':
             for(var i = 0; i < len; i++) {
                 Opt.push(data[i])
             }
-            flag = true
+            field_flag = true
             break
         default: console.log("Oops, invalid document type selected. How did you even do that?")
     }
-    return await display('Books', Opt, flag)
+    return await display('Books', Opt, field_flag)
 }
 
 async function fetch_journal_flat(bookattr, field) { //.json version of fetch_journals
@@ -77,34 +80,38 @@ async function fetch_journal_flat(bookattr, field) { //.json version of fetch_jo
                 if(data[i].journal_title == bookattr)
                 Opt.push(data[i])
             }
+            field_flag = false
             break
         case 'author':
             for(var i = 0; i < len; i++) {
                 if(data[i].author == bookattr)
                 Opt.push(data[i])
             }
+            field_flag = false
             break
         case 'date':
             for(var i = 0; i < len; i++) {
                 if(data[i].date == bookattr)
                 Opt.push(data[i])
             }
+            field_flag = false
             break
         case 'id':
             for(var i = 0; i < len; i++) {
                 if(data[i].journal_ID == parseInt(bookattr))
                 Opt.push(data[i])
             }
+            field_flag = false
             break
         case 'empty':
             for(var i = 0; i < len; i++) {
                 Opt.push(data[i])
             }
-            flag = true
+            field_flag = true
             break
         default: console.log("Oops, invalid search parameter selected. How did you even do that?")
     }
-    return await display('Journals', Opt, flag)
+    return await display('Journals', Opt, field_flag)
 }
 
 async function update_document_flat(docType,title, newTitle) { 
@@ -131,8 +138,10 @@ async function update_book_flat(title, newTitle) {
         if(data[i].book_title == title)
         data[i].book_title = newTitle
     }
-    console.log(title + " updated to " +newTitle)
+    let htmlOpt = "<p>" + title + " updated to " +newTitle + "</p>"
+    console.log(htmlOpt)
     saveJSON(books, data)
+    return htmlOpt
 }
 
 async function update_journal_flat(title, newTitle) {
@@ -142,11 +151,14 @@ async function update_journal_flat(title, newTitle) {
         if(data[i].journal_title == title)
         data[i].journal_title = newTitle
     }
-    console.log(title + " updated to " + newTitle)
+    let htmlOpt = "<p>" + title + " updated to " +newTitle + "</p>"
+    console.log(htmlOpt)
     saveJSON(journals, data)
+    return htmlOpt
 }
 
-async function display(docType, value = [], flag) { //universal display function
+async function display(docType, value = [], field_flag) { //universal display function
+    console.log(field_flag)
     var id = [], title = [], author = [], date = [], author_info= []
     var len = value.length
     switch(docType) {
@@ -155,7 +167,7 @@ async function display(docType, value = [], flag) { //universal display function
                 id[i] = value[i].book_ID
                 title[i] = value[i].book_title
                 author[i] = value[i].author
-                if(flag == true){
+                if(field_flag == true){
                     author_info[i] = value[i].about_author
                 }
                 date[i] = value[i].date }
@@ -165,7 +177,7 @@ async function display(docType, value = [], flag) { //universal display function
                 id[i] = value[i].journal_ID
                 title[i] = value[i].journal_title
                 author[i] = value[i].author
-                if(flag == true){
+                if(field_flag === true){
                     author_info[i] = value[i].about_author
                 }
                 date[i] = value[i].date }
@@ -174,19 +186,24 @@ async function display(docType, value = [], flag) { //universal display function
     }
     var htmlOpt = "<div><table border = '2'>"
     htmlOpt += "<tr><th>ID</th> <th>Title</th>"
-    htmlOpt += "<th>Author</th><th>Author Info</th><th>DOP</th></tr>"
+    htmlOpt += "<th>Author</th>"
+    if(field_flag === true) {
+        htmlOpt += "<th>Author Info</th>"
+    }
+    htmlOpt += "<th>DOP</th></tr>"
     for(var i = 0; i< len; i++){
         htmlOpt += "<tr>";
         htmlOpt += "<td>" + id[i] + "</td>"
         htmlOpt += "<td>" + title[i] + "</td>"
         htmlOpt += "<td>" + author[i] + "</td>"
-        if(flag == true){
+        if(field_flag === true){
             htmlOpt += "<td>" + author_info[i] + "</td>" 
         }
         htmlOpt += "<td>" + date[i] + "</td>"
         htmlOpt += "</tr>"
     }
     htmlOpt += "</table></div>" 
+    field_flag = false
     return htmlOpt 
 }
 
