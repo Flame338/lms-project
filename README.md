@@ -55,4 +55,10 @@ At the top, there is a navbar that shows three tabs
 # Search Mode
 Searching is easy, choose the document type & search field then add a search term in the search bar. Hit submit and you'll have info about the document in question
 
-Eg. 
+Eg. ![image](https://github.com/Flame338/lms-project/assets/79010252/98f5fc96-7a9b-449c-8eb9-dd88a63bc5f7)
+In the above example, we're searching for the book Moby Dick
+
+# Update Mode
+Click on the Update Titles tab on the navbar to get redirected to this page
+![image](https://github.com/Flame338/lms-project/assets/79010252/3be83add-2dfb-429f-8728-d2e57b72e4fe)
+Here, since it's simply used to change the title of a document, the search field here are the document types. To update the name of a title, simply type it's name and hit submit
