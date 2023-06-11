@@ -46,3 +46,8 @@ The website is now up for local use!
 ## How does it work?
 ![image](https://github.com/Flame338/lms-project/assets/79010252/ae2ae6e2-60f2-4258-90cd-0166b7c24295)
 The above page is the landing page which also serves as the document search page. 
+
+At the top, there is a navbar that shows three tabs
+- Search
+- Update
+- About
