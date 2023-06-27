@@ -1,6 +1,6 @@
 # Library Management System
 
-The Library Management System is made as part of the UST FSD Training Program. The diagram given below illustrates how the front-end & back-end are connected. This project is developed in partnership with Navneeth Nair
+The Library Management System is made as part of the UST FSD Training Program by Steve Thomas. The diagram given below illustrates how the front-end & back-end are connected. This project is developed in partnership with Navneeth Nair
     
        Front         Express.js          Back     
         End        <------------>        End      
