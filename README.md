@@ -33,6 +33,10 @@ The Library Management System is made as part of the UST FSD Training Program by
   ```
   npm install nodemon 
   ```
+  5) express (just incase of migrating files to mongodb)
+  ```
+  npm install express
+  ```
   
 # To run the project locally
 1) Go the file where lms.js is located and in the terminal, type
