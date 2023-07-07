@@ -44,7 +44,8 @@ npx nodemon lms.js
 The website is now up for local use!
 
 ## How does it work?
-![image](https://github.com/Flame338/lms-project/assets/79010252/ae2ae6e2-60f2-4258-90cd-0166b7c24295)
+![how does it work](https://github.com/Flame338/lms-project/assets/79010252/c2e7cd8f-a185-4b2c-a13a-c9c9045e4a7d)
+
 The above page is the landing page which also serves as the document search page. 
 
 At the top, there is a navbar that shows three tabs
@@ -54,20 +55,19 @@ At the top, there is a navbar that shows three tabs
 
 # Search Mode
 Searching is easy, choose the document type & search field then add a search term in the search bar. Hit submit and you'll have info about the document in question
-
-Eg. ![image](https://github.com/Flame338/lms-project/assets/79010252/98f5fc96-7a9b-449c-8eb9-dd88a63bc5f7)
+Eg. ![searchMode](https://github.com/Flame338/lms-project/assets/79010252/4b4d7e90-eca5-463e-bc04-64aaf4220f3c)
 In the above example, we're searching for the book Moby Dick
 
 # Update Mode
 Click on the Update Titles tab on the navbar to get redirected to this page
-![image](https://github.com/Flame338/lms-project/assets/79010252/3be83add-2dfb-429f-8728-d2e57b72e4fe)
+![updateMode](https://github.com/Flame338/lms-project/assets/79010252/bcec0b6f-1f1d-4cf1-9c42-6b7ce759828f)
 Here, since it's simply used to change the title of a document, the search field here are the document types. To update the name of a title, simply type it's name and hit submit
 
 # Report Mode
 To see the report of all the documents in the system, simply set all fields of the Search Page as N/A (empty) as so
-![image](https://github.com/Flame338/lms-project/assets/79010252/c3b85f12-7d58-4636-a654-5c62553d15b9)
+![reportMode](https://github.com/Flame338/lms-project/assets/79010252/6c231da6-8675-4590-abc5-af2daf597343)
 The output is renderred on the same page as so
-![image](https://github.com/Flame338/lms-project/assets/79010252/3e52d8ce-09e8-4651-9fef-a1e8dc9b6320)
+![reportOutput](https://github.com/Flame338/lms-project/assets/79010252/3050d37e-e539-42c1-8228-8bb558306895)
 
 # Points to improve on:
 - Adding a Admin/User roles accorsing to log in credentials
