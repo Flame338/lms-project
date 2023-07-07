@@ -20,6 +20,8 @@ The Library Management System is made as part of the UST FSD Training Program by
   |        | lms_mongodb.js | Same thing but using mongodb in case the LMS needs to be scaled up  |
   
  # Dependencies required: 
+
+ First, navigate to the file LMS and then install the following dependencies
   1) npm package manager
   2) Express.js
   ```
